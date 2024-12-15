@@ -1,6 +1,9 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
+# Install pip first
+RUN apk add --no-cache python3-pip
+
 # Copy requirements.txt first for better cache
 COPY requirements.txt /opt/
 RUN pip3 install -r /opt/requirements.txt
