@@ -1,0 +1,25 @@
+version: "1.0.0"
+slug: "dnshome_updater"
+name: "DNSHome DDNS Updater"
+description: "Automatically update DNSHome DDNS records"
+url: "https://github.com/yourusername/dnshome-addon"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: application
+boot: auto
+options:
+  domain: ""
+  username: ""
+  password: ""
+  update_interval: 10800  # 3 hours in seconds
+schema:
+  domain: str
+  username: str
+  password: str
+  update_interval: int(3600,86400)  # Min 1 hour, max 24 hours
+ports: {}
+init: false
