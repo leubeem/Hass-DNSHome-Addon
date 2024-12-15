@@ -1,15 +1,16 @@
-FROM homeassistant/amd64-base-python:3.9
-WORKDIR /app
+ARG BUILD_FROM
+FROM ${BUILD_FROM}
 
-# Install required packages
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+# Copy requirements.txt first for better cache
+COPY requirements.txt /opt/
+RUN pip3 install -r /opt/requirements.txt
 
 # Copy your script
-COPY run.py .
+COPY run.py /opt/
+RUN chmod a+x /opt/run.py
 
-# Make script executable
-RUN chmod +x run.py
+# Set workdir
+WORKDIR /opt
 
 # Run script
-CMD [ "./run.py" ]
+CMD [ "python3", "run.py" ]
