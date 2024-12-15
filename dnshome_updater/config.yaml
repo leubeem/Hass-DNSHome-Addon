@@ -26,4 +26,4 @@ schema:
   update_interval: int(3600,86400)  # Min 1 hour, max 24 hours
 ports: {}
 init: false
-image: leubeem/dnshome_updater:latest
+image: leubeema/dnshome_updater:latest
