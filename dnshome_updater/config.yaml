@@ -1,5 +1,5 @@
 ---
-version: 2.0.0
+version: 2.5.0
 slug: dnshome_updater
 name: DNSHome DDNS Updater
 description: >-
@@ -26,4 +26,9 @@ schema:
   update_interval: int(3600,86400)  # Min 1 hour, max 24 hours
 ports: {}
 init: false
-image: leubeema/dnshome_updater:latest
+build_from:
+  aarch64: ghcr.io/home-assistant/aarch64-base-python
+  amd64: ghcr.io/home-assistant/amd64-base-python
+  armhf: ghcr.io/home-assistant/armhf-base-python
+  armv7: ghcr.io/home-assistant/armv7-base-python
+  i386: ghcr.io/home-assistant/i386-base-python
