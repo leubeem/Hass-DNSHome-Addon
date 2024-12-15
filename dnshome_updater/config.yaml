@@ -3,7 +3,7 @@ version: 1.0.0
 slug: dnshome_updater
 name: DNSHome DDNS Updater
 description: >-
-  Automatically update DNSHome DDNS records"
+  Automatically update DNSHome DDNS records
 url: https://github.com/leubeem/Hass-DNSHome-Addon
 arch:
   - armhf
