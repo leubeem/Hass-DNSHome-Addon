@@ -1,9 +1,6 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Ensure correct path
-ENV PATH /usr/local/bin:$PATH
-
 # Copy requirements.txt first for better cache
 COPY requirements.txt /opt/
 
