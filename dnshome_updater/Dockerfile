@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 COPY requirements.txt /opt/
 
 # Install requirements using their Python
-RUN python3 -m pip install -r /opt/requirements.txt
+RUN pip install -r /opt/requirements.txt
 
 # Copy your script
 COPY run.py /opt/
