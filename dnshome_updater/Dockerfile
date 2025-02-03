@@ -1,11 +1,12 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+# ARG BUILD_FROM
+# FROM $BUILD_FROM
+FROM python:slim
 
 # Copy requirements.txt first for better cache
 COPY requirements.txt /opt/
-RUN python3 --version
+
 # Install requirements using their Python
-RUN pip install "requests>=2.25.1"
+RUN pip install -r /opt/requirements.txt
 
 # Copy your script
 COPY run.py /opt/
