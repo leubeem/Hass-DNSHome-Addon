@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM ${BUILD_FROM}
+FROM $BUILD_FROM
 
 # Copy requirements.txt first for better cache
 COPY requirements.txt /opt/
