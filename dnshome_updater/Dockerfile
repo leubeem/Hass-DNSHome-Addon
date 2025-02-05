@@ -14,7 +14,7 @@ COPY requirements.txt .
 #RUN apk add --no-cache python3 py3-pip
 
 # Install requirements using their Python
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt -vvv
 
 COPY run.py run.py
 
