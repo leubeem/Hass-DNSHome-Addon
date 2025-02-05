@@ -63,6 +63,8 @@ class DNSHomeUpdater:
 
             for interface in interfaces:
                 if interface.startswith('lo'):
+                    # Make log entry for loopback interface
+                    logger.debug(f"Skipping loopback interface {interface}")
                     continue
 
                 addrs = netifaces.ifaddresses(interface)
@@ -74,6 +76,9 @@ class DNSHomeUpdater:
                         if not (ip.startswith('fe80:') or ip.startswith('::1')):
                             logger.debug(f"Found public IPv6 {ip} on interface {interface}")
                             return ip
+                # If no global IPv6 address found, make error log
+                else:
+                    logger.error(f"No global IPv6 address found on interface {interface}")
             return None
         except Exception as e:
             logger.error(f"Error getting IPv6 from interfaces: {e}")
