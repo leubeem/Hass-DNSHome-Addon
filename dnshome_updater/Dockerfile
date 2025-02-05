@@ -1,9 +1,17 @@
 # ARG BUILD_FROM
 # FROM $BUILD_FROM
-FROM python:slim
+FROM python:3.9
 
 # run this before copying requirements for cache efficiency
-RUN pip install --upgrade pip
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip \
+    ; \
+    rm -rf /var/lib/apt/lists/*; \
+    pip3 install --no-cache-dir --upgrade pip
+
 
 
 WORKDIR /opt
