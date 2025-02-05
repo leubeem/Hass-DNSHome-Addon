@@ -22,7 +22,9 @@ COPY requirements.txt .
 #RUN apk add --no-cache python3 py3-pip
 
 # Install requirements using their Python
-RUN pip install -r requirements.txt -vvv
+# Explicitly install requests in case requirements.txt fails
+RUN pip install -r requirements.txt || pip install requests -vvv
+RUN pip3 install -r requirements.txt || pip3 install requests -vvv
 
 COPY run.py run.py
 
