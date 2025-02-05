@@ -11,7 +11,7 @@ WORKDIR /opt/
 #RUN apk add --no-cache python3 py3-pip
 
 # Install requirements using their Python
-RUN pip install -r /opt/requirements.txt
+RUN pip3 install -r /opt/requirements.txt
 
 # Copy your script
 RUN chmod a+x /opt/run.py
