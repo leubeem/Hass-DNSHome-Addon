@@ -12,8 +12,6 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*; \
     pip3 install --no-cache-dir --upgrade pip
 
-
-
 WORKDIR /opt
 
 # Copy requirements.txt first for better cache
